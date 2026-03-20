@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audiencias | Dashboard Premium</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Barra lateral (Sidebar) -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <i class="fa-solid fa-chart-line logo-icon"></i>
+                <span class="logo-text">AudiENCIAS</span>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#"><i class="fa-solid fa-house"></i> <span>Dashboard</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-pie"></i> <span>Reportes</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-clock-rotate-left"></i> <span>HistÃ³rico</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-tv"></i> <span>Canales TV</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-gear"></i> <span>Ajustes</span></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=User&background=6366f1&color=fff" alt="User">
+                    <div class="user-info">
+                        <span class="user-name">Editor CPU</span>
+                        <span class="user-role">Administrador</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-search">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="Buscar programas, canales o franjas horarias...">
+                </div>
+                <div class="header-actions">
+                    <div class="status-indicator">
+                        <span class="status-dot online"></span>
+                        <span class="status-text">Datos en vivo</span>
+                    </div>
+                    <button class="btn-icon"><i class="fa-solid fa-bell"></i><span class="badge">3</span></button>
+                    <button class="btn-primary"><i class="fa-solid fa-download"></i> Exportar</button>
+                </div>
+            </header>
+
+            <section class="dashboard-overview">
+                <div class="welcome-section">
+                    <h1>Resumen de Audiencias - <span id="current-date">SÃ¡bado, 20 de Marzo, 2026</span></h1>
+                    <p>Bienvenido de nuevo. El seguimiento hoy ha superado las expectativas de la franja matinal.</p>
+                </div>
+
+                <!-- Tarjetas de mÃ©tricas rÃ¡pidas (KPIs) -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Minuto a Minuto</span>
+                            <i class="fa-solid fa-chart-line text-blue"></i>
+                        </div>
+                        <div class="kpi-value" id="live-share">14.2%</div>
+                        <div class="kpi-footer">
+                            <span class="trend up"><i class="fa-solid fa-arrow-up"></i> 1.2%</span>
+                            <span class="time-label">vs hora anterior</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Espectadores Hoy</span>
+                            <i class="fa-solid fa-users text-purple"></i>
+                        </div>
+                        <div class="kpi-value" id="daily-viewers">842K</div>
+                        <div class="kpi-footer">
+                            <span class="trend up"><i class="fa-solid fa-arrow-up"></i> 5.7%</span>
+                            <span class="time-label">vs mismo dÃ­a sem. ant.</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">MÃ¡ximo HistÃ³rico</span>
+                            <i class="fa-solid fa-trophy text-orange"></i>
+                        </div>
+                        <div class="kpi-value">22.1%</div>
+                        <div class="kpi-footer">
+                            <span class="trend steady"><i class="fa-solid fa-minus"></i> --</span>
+                            <span class="time-label">Alcanzado a las 21:05</span>
+                        </div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Canal LÃ­der</span>
+                            <i class="fa-solid fa-award text-yellow"></i>
+                        </div>
+                        <div class="kpi-value" id="top-channel">Canal 24H</div>
+                        <div class="kpi-footer">
+                            <span class="trend down"><i class="fa-solid fa-arrow-down"></i> 0.3%</span>
+                            <span class="time-label">PÃ©rdida de Share</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GrÃ¡fico principal y lista de programas -->
+                <div class="charts-row">
+                    <div class="chart-container large">
+                        <div class="chart-header">
+                            <h2>EvoluciÃ³n de Cuota de Pantalla (%)</h2>
+                            <div class="chart-actions">
+                                <button class="btn-tab active">Hoy</button>
+                                <button class="btn-tab">7 DÃ­as</button>
+                            </div>
+                        </div>
+                        <div class="chart-box" id="main-chart-placeholder">
+                            <!-- AquÃ­ irÃ­a un grÃ¡fico REAL (Canvas/SVG) -->
+                            <div class="placeholder-graphic">
+                                <div class="bar-line" style="height: 40%;"></div>
+                                <div class="bar-line" style="height: 45%;"></div>
+                                <div class="bar-line" style="height: 55%;"></div>
+                                <div class="bar-line" style="height: 50%;"></div>
+                                <div class="bar-line pulsating" style="height: 14%;"></div> <!-- Minuto actual -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="list-container">
+                        <div class="list-header">
+                            <h2>Top 5 Programas</h2>
+                            <a href="#" class="view-all">Ver todos</a>
+                        </div>
+                        <ul class="program-list">
+                            <li class="program-item">
+                                <div class="rank">1</div>
+                                <div class="program-name">
+                                    <strong>Informativo 24H</strong>
+                                    <span>20:00 - 21:00</span>
+                                </div>
+                                <div class="program-share">18.4%</div>
+                            </li>
+                            <li class="program-item">
+                                <div class="rank">2</div>
+                                <div class="program-name">
+                                    <strong>Deportes Hoy</strong>
+                                    <span>21:00 - 21:30</span>
+                                </div>
+                                <div class="program-share">16.1%</div>
+                            </li>
+                            <li class="program-item">
+                                <div class="rank">3</div>
+                                <div class="program-name">
+                                    <strong>Gran Cine</strong>
+                                    <span>22:00 - 00:00</span>
+                                </div>
+                                <div class="program-share">14.2%</div>
+                            </li>
+                            <li class="program-item">
+                                <div class="rank">4</div>
+                                <div class="program-name">
+                                    <strong>Debate Abierto</strong>
+                                    <span>19:30 - 20:00</span>
+                                </div>
+                                <div class="program-share">12.5%</div>
+                            </li>
+                            <li class="program-item">
+                                <div class="rank">5</div>
+                                <div class="program-name">
+                                    <strong>Documental Naturaleza</strong>
+                                    <span>18:00 - 19:00</span>
+                                </div>
+                                <div class="program-share">10.9%</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
